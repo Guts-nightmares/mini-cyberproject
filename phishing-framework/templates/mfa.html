@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-Factor Authentication</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .mfa-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 450px;
+            padding: 50px 40px;
+        }
+
+        .mfa-icon {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .shield-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .mfa-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .mfa-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .code-input-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .code-input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 24px;
+            text-align: center;
+            letter-spacing: 8px;
+            font-weight: 600;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .code-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn-verify {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-verify:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-verify:active {
+            transform: translateY(0);
+        }
+
+        .help-text {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .help-text a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .help-text a:hover {
+            text-decoration: underline;
+        }
+
+        .security-badge {
+            margin-top: 30px;
+            padding: 15px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 13px;
+            color: #2e7d32;
+        }
+
+        .warning-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 4px;
+            font-size: 10px;
+            color: #856404;
+            margin-top: 15px;
+        }
+
+        .user-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #f0f0f0;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mfa-container">
+        <div class="mfa-icon">
+            <div class="shield-icon">🛡️</div>
+            <div class="mfa-title">Two-Factor Authentication</div>
+        </div>
+
+        <div style="text-align: center;">
+            <div class="user-badge">👤 {{username}}</div>
+        </div>
+
+        <div class="mfa-subtitle">
+            Please enter the 6-digit verification code from your authenticator app to complete sign-in.
+        </div>
+
+        <form action="/mfa" method="POST" id="mfaForm">
+            <input type="hidden" name="campaign_id" value="{{campaign_id}}">
+            <input type="hidden" name="username" value="{{username}}">
+
+            <div class="code-input-container">
+                <input type="text" name="mfa_code" id="mfaCode" class="code-input"
+                       placeholder="000000" maxlength="6" pattern="[0-9]{6}"
+                       inputmode="numeric" required autofocus>
+            </div>
+
+            <button type="submit" class="btn-verify">Verify Code</button>
+        </form>
+
+        <div class="help-text">
+            Having trouble? <a href="#">Try another way to sign in</a>
+        </div>
+
+        <div class="security-badge">
+            ✓ This verification helps protect your account
+            <div class="warning-badge">
+                ⚠️ EDUCATIONAL DEMO - FOR TESTING ONLY
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-submit when 6 digits entered
+        document.getElementById('mfaCode').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            e.target.value = value;
+
+            if (value.length === 6) {
+                // Optional: auto-submit
+                // document.getElementById('mfaForm').submit();
+            }
+        });
+
+        // Focus on input on page load
+        document.getElementById('mfaCode').focus();
+    </script>
+</body>
+</html>
