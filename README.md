@@ -1,406 +1,202 @@
-# Mini Cyber Fun - Offensive Security Toolkit
+# Mini Cyber Fun - Mon Lab de Pentest
 
-⚠️ **FOR EDUCATIONAL AND AUTHORIZED TESTING ONLY**
+Salut! Bienvenue sur mon repo où je centralise mes projets et outils pour apprendre le pentest.
 
-This repository contains 5 advanced offensive security projects built in Python for educational purposes, penetration testing, and security research.
+> **Disclaimer:** Tout ce qui est ici est pour l'apprentissage, les CTF et mon lab perso. Utilisez sur vos propres machines uniquement!
 
-## ⚠️ CRITICAL WARNING
+## Pourquoi ce repo?
 
-**THESE TOOLS ARE FOR AUTHORIZED USE ONLY**
+Je me suis lancé dans la cybersécurité offensive et j'ai créé ce repo pour:
+- Apprendre en codant mes propres outils
+- Préparer l'OSCP
+- Documenter ce que j'apprends
+- Avoir un lab portable pour mes tests
 
-These projects demonstrate real offensive security techniques. Unauthorized use is **ILLEGAL** and can result in:
-- Criminal prosecution
-- Imprisonment
-- Heavy fines
-- Civil liability
-
-**Only use these tools:**
-- With explicit written authorization
-- On systems you own or have permission to test
-- In isolated lab environments
-- For educational purposes
-- In authorized penetration testing engagements
-- In CTF competitions
-
-## Projects Overview
-
-### 1. 🎯 APT Simulation Framework (`apt-framework/`)
-Advanced Persistent Threat simulation with Command & Control infrastructure.
-
-**Features:**
-- Encrypted C2 server with agent management
-- Stealth agents with beacon jitter
-- Remote command execution
-- Persistence mechanisms
-- Multi-agent support
-- Interactive operator console
-
-**Tech Stack:** Python, aiohttp, cryptography (Fernet encryption)
-
-**Use Cases:**
-- Red team exercises
-- Defense testing
-- Threat simulation
-- Security training
-
-[📖 Full Documentation](apt-framework/README.md)
-
----
-
-### 2. 🔒 Educational Ransomware (`educational-ransomware/`)
-Full-featured ransomware with real encryption and dedicated decryptor.
-
-**Features:**
-- AES-256-CBC encryption
-- RSA-2048 key protection
-- Manifest-based file tracking
-- Automated encryption/decryption
-- Ransom note generation
-- Victim identification
-
-**Tech Stack:** Python, cryptography
-
-**Use Cases:**
-- Ransomware behavior analysis
-- Incident response training
-- Understanding crypto-malware
-- Defense development
-
-[📖 Full Documentation](educational-ransomware/README.md)
-
----
-
-### 3. 👻 Python Rootkit (`python-rootkit/`)
-LD_PRELOAD rootkit for hiding processes and files on Linux.
-
-**Features:**
-- System call hooking (readdir, stat, fopen)
-- Process hiding from `/proc`
-- File/directory hiding
-- Configuration-based rules
-- User-space and system-wide modes
-- C library with Python management
-
-**Tech Stack:** C (shared library), Python (manager)
-
-**Use Cases:**
-- Understanding rootkit techniques
-- Detection tool development
-- Linux security research
-- Defensive training
-
-[📖 Full Documentation](python-rootkit/README.md)
-
----
-
-### 4. ⬆️ Privilege Escalation Scanner (`privesc-scanner/`)
-Automated Linux privilege escalation scanner and exploiter.
-
-**Features:**
-- **Scanner:** Detects 10+ privesc vectors
-- **Exploiter:** Provides exploitation guidance
-- SUID/SGID binary analysis
-- Sudo misconfiguration detection
-- Docker escape techniques
-- Kernel vulnerability checks
-- Payload generation
-
-**Tech Stack:** Python (standard library)
-
-**Use Cases:**
-- Post-exploitation enumeration
-- Security auditing
-- Hardening verification
-- CTF challenges
-
-[📖 Full Documentation](privesc-scanner/README.md)
-
----
-
-### 5. 🎣 Advanced Phishing Framework (`phishing-framework/`)
-Professional phishing simulation with MFA capture.
-
-**Features:**
-- Realistic credential harvesting pages
-- MFA/2FA bypass simulation
-- Campaign management & tracking
-- 5 pre-built email templates
-- SMTP integration
-- Admin dashboard
-- Real-time analytics
-
-**Tech Stack:** Python, aiohttp, HTML/CSS
-
-**Use Cases:**
-- Security awareness training
-- Phishing simulations
-- Social engineering testing
-- User education
-
-[📖 Full Documentation](phishing-framework/README.md)
-
----
-
-## Quick Start
-
-Each project is self-contained. Navigate to the project directory and follow its README.
-
-### General Installation Pattern
-
-```bash
-# Navigate to project
-cd <project-name>
-
-# Install dependencies (if needed)
-pip install -r requirements.txt
-
-# Read documentation
-cat README.md
-
-# Run project (varies by project)
-python src/main_file.py --help
-```
-
-## Project Matrix
-
-| Project | Language | Complexity | Risk Level | Platform |
-|---------|----------|------------|------------|----------|
-| APT Framework | Python | High | High | Cross-platform |
-| Ransomware | Python | Medium | Critical | Cross-platform |
-| Rootkit | C + Python | High | Medium | Linux only |
-| PrivEsc Scanner | Python | Medium | Medium | Linux |
-| Phishing Framework | Python | Medium | Medium | Cross-platform |
-
-## Dependencies Summary
-
-### APT Framework
-- aiohttp
-- cryptography
-
-### Ransomware
-- cryptography
-
-### Rootkit
-- gcc (for compilation)
-- Linux OS
-
-### PrivEsc Scanner
-- None (Python stdlib only)
-
-### Phishing Framework
-- aiohttp
-- aiofiles
-
-## Learning Path
-
-### Beginner
-1. Start with **PrivEsc Scanner** (reconnaissance)
-2. Study **Phishing Framework** (social engineering)
-
-### Intermediate
-3. Explore **Ransomware** (cryptography & malware)
-4. Build with **APT Framework** (C2 infrastructure)
-
-### Advanced
-5. Master **Rootkit** (low-level hooking)
-
-## Common Use Cases
-
-### 1. Penetration Testing
-- APT Framework: Post-exploitation C2
-- PrivEsc Scanner: Local privilege escalation
-- Phishing: Initial access simulation
-
-### 2. Security Training
-- Ransomware: Incident response drills
-- Phishing: Awareness training
-- All projects: Understanding attacker TTPs
-
-### 3. CTF Competitions
-- PrivEsc Scanner: Quick enumeration
-- Rootkit: Stealth techniques
-- All projects: Tool development skills
-
-### 4. Research & Development
-- All projects: Understanding offensive techniques
-- Defensive tool development
-- Security product testing
-
-## Legal & Ethical Guidelines
-
-### ✅ AUTHORIZED Use
-- Written penetration testing agreements
-- Your own systems/VMs
-- Authorized red team engagements
-- Security research with permission
-- Educational environments (labs, VMs)
-- CTF competitions
-
-### ❌ UNAUTHORIZED Use
-- Any system you don't own
-- Without explicit written permission
-- Production environments (without approval)
-- Third-party systems
-- "Testing" without authorization
-- Any malicious intent
-
-## Responsible Disclosure
-
-If you discover vulnerabilities using these tools:
-
-1. **Document findings** professionally
-2. **Notify stakeholders** immediately
-3. **Provide remediation** guidance
-4. **Don't disclose publicly** until patched
-5. **Follow responsible disclosure** timelines
-
-## Educational Value
-
-These projects teach:
-
-- **Cryptography**: Encryption, key management
-- **Networking**: C2 protocols, HTTP/HTTPS
-- **Systems Programming**: System calls, hooking
-- **Web Development**: Phishing pages, dashboards
-- **Social Engineering**: Email templates, persuasion
-- **Python Programming**: Async, file I/O, subprocess
-- **Linux Internals**: LD_PRELOAD, /proc, capabilities
-- **Security Concepts**: Attack vectors, defense evasion
-
-## Defense & Detection
-
-Each project includes:
-- Detection methods
-- Defensive countermeasures
-- Mitigation strategies
-- Security best practices
-
-**Remember:** The goal is to improve security, not to harm.
-
-## Repository Structure
+## Structure du Projet
 
 ```
 mini-cyber-fun/
-├── apt-framework/              # APT C2 simulation
-│   ├── server/                 # C2 server
-│   ├── agent/                  # Stealth agents
-│   ├── common/                 # Shared utilities
-│   └── README.md
-├── educational-ransomware/     # Ransomware demo
-│   ├── src/                    # Encryptor & decryptor
-│   └── README.md
-├── python-rootkit/             # LD_PRELOAD rootkit
-│   ├── lib/                    # C library
-│   ├── src/                    # Python manager
-│   └── README.md
-├── privesc-scanner/            # PrivEsc toolkit
-│   ├── src/                    # Scanner & exploiter
-│   └── README.md
-├── phishing-framework/         # Phishing simulation
-│   ├── src/                    # Server & email sender
-│   ├── templates/              # HTML templates
-│   └── README.md
-└── README.md                   # This file
+├── professional-pentest-toolkit/  # Mes outils pro pour le pentest
+│   ├── utilities/                # Scripts pour gérer mes engagements
+│   ├── reporting/               # Auto-générer mes rapports
+│   ├── physical-security/       # Tests HID et sécurité physique
+│   ├── lab-educational/        # Mon lab d'apprentissage
+│   └── methodologies/          # Mes notes de méthodologies
+│
+└── [anciens projets educatifs archivés]
 ```
 
-## Testing Environment Setup
+## Mon Toolkit Professionnel
 
-### Recommended Setup
+J'ai construit un vrai toolkit professionnel avec:
+
+### Gestion d'Engagements
+- **scope-manager.py** - Pour ne jamais tester hors scope (important!)
+- **engagement-logger.py** - Logger toutes mes actions (CYA)
+- **report-generator.py** - Générer des rapports propres pour les clients
+
+### Physical Security
+- **Scripts HID** - Pour mon Flipper Zero (tests de sécurité physique)
+- **Payloads diagnostiques** - Scripts Windows/Linux pour audits
+- **Méthodologie complète** - Mes notes sur le physical pentest
+
+### Lab Éducatif
+- **Reverse shells pédagogiques** - Pour comprendre comment ça marche
+- **Setup de lab isolé** - Ma config Kali + Windows VMs
+- **Guide Metasploit** - Mes notes sur Metasploit Framework
+- **Détection et défense** - Comment détecter ce que je fais (blue team perspective)
+
+## Quick Start
+
+### Setup du Lab
 
 ```bash
-# Create isolated VMs
-1. Kali Linux (attacker)
-2. Ubuntu Server (target)
-3. Windows 10 (target - optional)
+# Installer les outils pro
+cd professional-pentest-toolkit/lab-setup
+sudo bash install-tools.sh
 
-# Network: Internal/NAT only
-# Snapshots: Before testing
-# Monitoring: Wireshark, syslog
+# Lire le guide de démarrage
+cd ..
+cat QUICK-START.md
 ```
 
-### Virtual Lab Tools
-- VirtualBox / VMware
-- Docker containers
-- Vagrant
-- Cloud sandbox (AWS, Azure with proper isolation)
+### Premier Test (Lab Perso)
 
-## Security Checklist
+```bash
+# Démarrer un engagement
+python utilities/engagement-logger.py --start "Test-Lab-$(date +%Y%m%d)"
 
-Before running any project:
+# Charger un scope
+python utilities/scope-manager.py --load examples/scope-example.txt
 
-- [ ] Have written authorization
-- [ ] Isolated environment (VM/lab)
-- [ ] Network segmentation
-- [ ] No production data
-- [ ] Backup/snapshots created
-- [ ] Monitoring enabled
-- [ ] Incident response ready
-- [ ] Legal review completed
+# ... faire vos tests ...
 
-## Contributing
+# Générer le rapport
+python reporting/report-generator.py --generate --format html
+```
 
-Contributions welcome for:
-- Bug fixes
-- Documentation improvements
-- New features (educational value)
-- Detection methods
-- Defense techniques
+## Ce que j'ai Appris
 
-**Not accepted:**
-- 0-day exploits
-- Malicious payloads
-- Detection evasion (without educational value)
-- Anything promoting illegal activity
+En construisant ce toolkit, j'ai vraiment compris:
 
-## References & Resources
+1. **L'importance du scope** - Ne JAMAIS tester sans autorisation
+2. **Le logging** - Documenter tout pour les rapports clients
+3. **Les outils pro** - Pourquoi Metasploit > scripts custom
+4. **La détection** - Comment les blue teams nous detectent
+5. **L'éthique** - Always get permission in writing!
 
-### Learning Resources
-- [MITRE ATT&CK](https://attack.mitre.org/)
-- [OWASP](https://owasp.org/)
-- [Offensive Security](https://www.offensive-security.com/)
-- [HackTheBox](https://www.hackthebox.com/)
-- [TryHackMe](https://tryhackme.com/)
+## Mes Projets Éducatifs
 
-### Books
-- "The Hacker Playbook" series
-- "Penetration Testing" by Georgia Weidman
+J'ai aussi des projets plus anciens que j'ai créés pour apprendre:
+- APT Framework (C2 simple)
+- Ransomware éducatif (crypto)
+- Phishing framework
+- PrivEsc scanner
+- Python rootkit
+
+> **Note:** Ces projets sont purement éducatifs. Pour du vrai pentest, j'utilise maintenant des outils reconnus (Metasploit, Sliver, etc.)
+
+## Outils que j'utilise
+
+**Reconnaissance:**
+- Nmap, Masscan
+- Subfinder, Amass
+- Nuclei
+- Burp Suite Pro
+
+**Exploitation:**
+- Metasploit Framework
+- Sliver C2
+- SQLMap
+- Impacket
+
+**Physical:**
+- Flipper Zero
+- Bash Bunny
+- USB Rubber Ducky
+
+**Post-Exploitation:**
+- Meterpreter
+- BloodHound
+- LinPEAS/WinPEAS
+
+## Lab Setup
+
+Mon lab perso:
+- Kali Linux (attaquant)
+- Windows 10 VM (cible)
+- VulnHub machines
+- HackTheBox Pro subscription
+
+Réseau isolé, pas d'Internet pour éviter les accidents!
+
+## Certifications Visées
+
+- [ ] eJPT (done!)
+- [ ] PNPT (en cours)
+- [ ] OSCP (objectif 2024)
+- [ ] CRTP (après OSCP)
+
+## Resources que je Recommande
+
+**Plateformes:**
+- HackTheBox - Meilleure plateforme IMO
+- TryHackMe - Bon pour débuter
+- PortSwigger Academy - Gratuit et excellent pour le web
+
+**Communautés:**
+- r/oscp - Reddit
+- IPPSec YouTube - Walkthrough HTB
+- The Cyber Mentor - Formations gratuites
+
+**Livres:**
+- "The Hacker Playbook 3"
+- "Penetration Testing" - Georgia Weidman
 - "Red Team Field Manual"
-- "Black Hat Python"
 
-### Certifications
-- OSCP (Offensive Security Certified Professional)
-- CEH (Certified Ethical Hacker)
-- GPEN (GIAC Penetration Tester)
+## Contributions
 
-## License
+Si vous trouvez des bugs ou avez des suggestions, n'hésitez pas à ouvrir une issue!
 
-These projects are provided for educational purposes. Check individual project READMEs for specific licenses.
+**Pas de PR pour:**
+- Techniques d'evasion avancées sans contexte éducatif
+- Exploits 0-day
+- Outils offensifs sans disclaimers appropriés
 
-**Disclaimer:** The authors are not responsible for misuse of these tools. Users are solely responsible for ensuring legal and authorized use.
+## Licence et Disclaimers
 
-## Support
+**IMPORTANT:**
 
-For educational questions or issues:
-- Open an issue (no illegal activity questions)
-- Check project-specific READMEs
-- Review documentation thoroughly
+Ces outils sont pour:
+- ✅ Votre lab personnel
+- ✅ Machines que vous possédez
+- ✅ Engagements avec autorisation ÉCRITE
+- ✅ CTF et compétitions
+- ✅ Apprentissage et éducation
 
-## Acknowledgments
+Ces outils ne sont PAS pour:
+- ❌ Systèmes sans autorisation
+- ❌ Activités illégales
+- ❌ Nuire à autrui
 
-Built for educational purposes to help security professionals understand offensive techniques and build better defenses.
+**L'accès non autorisé est un crime!** Toujours obtenir une autorisation écrite avant tout test.
+
+## Contact
+
+Trouvé un bug? Une question?
+- Ouvrir une issue sur ce repo
+- Check la documentation dans chaque dossier
+
+## Remerciements
+
+Merci à la communauté infosec pour le partage de connaissances:
+- IppSec pour les walkthrough
+- The Cyber Mentor pour les formations
+- Offensive Security pour l'OSCP
+- Tous les créateurs de CTF
 
 ---
 
-## Final Warning
+**Stay curious, stay legal, stay ethical!** 🔒
 
-🚨 **THESE ARE REAL OFFENSIVE SECURITY TOOLS** 🚨
-
-- Use responsibly and ethically
-- Obtain proper authorization
-- Respect privacy and laws
-- Focus on improving security
-- Don't harm others
-
-**Remember: With great power comes great responsibility.**
-
-Stay legal. Stay ethical. Stay curious. 🔒
+*Last updated: 2024 - En constante évolution*
