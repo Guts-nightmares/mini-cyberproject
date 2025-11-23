@@ -1,0 +1,46 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+
+# Logs et données sensibles
+*.log
+*.jsonl
+credentials.jsonl
+*.pcap
+*.cap
+
+# Rapports et outputs
+reports/*/
+engagements/*/
+scope.json
+*.txt.bak
+
+# Fichiers temporaires
+*.tmp
+*.swp
+*~
+
+# Mes notes perso (à ne pas commit)
+NOTES.md
+TODO-perso.txt
+
+# Payloads et tests
+*.exe
+*.dll
+*.bin
+lab-payload.*
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
