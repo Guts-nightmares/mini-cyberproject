@@ -1,0 +1,46 @@
+{
+    "domain": "example.com",
+    "report_date": "2025-10-31T10:30:00.123456",
+    "whois": {
+        "domain_name": "EXAMPLE.COM",
+        "registrar": "RESERVED-Internet Assigned Numbers Authority",
+        "whois_server": "whois.iana.org",
+        "updated_date": "2022-08-14T07:01:44",
+        "creation_date": "1995-08-14T04:00:00",
+        "expiration_date": "2023-08-13T04:00:00",
+        "name_servers": [
+            "A.IANA-SERVERS.NET",
+            "B.IANA-SERVERS.NET"
+        ],
+        "status": "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+        "emails": "abuse@iana.org",
+        "dnssec": "unsigned",
+        "name": null,
+        "org": "Internet Assigned Numbers Authority",
+        "address": null,
+        "city": null,
+        "state": "CA",
+        "zipcode": null,
+        "country": "US"
+    },
+    "dns_records": {
+        "A": [
+            "93.184.216.34"
+        ],
+        "MX": [],
+        "NS": [
+            "a.iana-servers.net.",
+            "b.iana-servers.net."
+        ],
+        "TXT": [
+            "\"v=spf1 -all\""
+        ]
+    },
+    "subdomains": [
+        "www.example.com"
+    ],
+    "web_technologies": {
+        "Content-Type": "text/html; charset=UTF-t",
+        "Server": "ECS (dcb/7EA3)"
+    }
+}

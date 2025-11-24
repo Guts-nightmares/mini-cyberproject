@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Rapport de Reconnaissance OSINT pour example.com</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; color: #333; background-color: #f4f4f4; margin: 0; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1, h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .section { margin-bottom: 25px; }
+        .key { font-weight: bold; color: #34495e; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background-color: #3498db; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .badge { background-color: #e74c3c; color: white; padding: 3px 8px; font-size: 0.8em; border-radius: 12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rapport OSINT pour <span class="value">example.com</span></h1>
+        
+        <!-- ... (Section WHOIS omise pour la brièveté) ... -->
+
+        <!-- Section DNS -->
+        <div class="section">
+            <h2>Enregistrements DNS</h2>
+            <table id="dns-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Valeur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge">A</span></td>
+                        <td>93.184.216.34</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">NS</span></td>
+                        <td>a.iana-servers.net.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">NS</span></td>
+                        <td>b.iana-servers.net.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">TXT</span></td>
+                        <td>"v=spf1 -all"</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section Subdomains -->
+        <div class="section">
+            <h2>Sous-domaines découverts</h2>
+            <ul>
+                <li>www.example.com</li>
+            </ul>
+        </div>
+
+        <!-- Section Web Technologies -->
+        <div class="section">
+            <h2>Technologies Web (via en-têtes HTTP)</h2>
+             <ul>
+                <li><span class="key">Content-Type:</span> <span>text/html; charset=UTF-8</span></li>
+                <li><span class="key">Server:</span> <span>ECS (dcb/7EA3)</span></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
