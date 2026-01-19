@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Sign In - Company Portal</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔐</text></svg>">
     <style>
         * {
             margin: 0;
@@ -171,10 +173,48 @@
 
         <div class="security-notice">
             🔒 Your connection is secure and encrypted
-            <div class="warning-badge">
-                ⚠️ EDUCATIONAL DEMO - FOR TESTING ONLY
-            </div>
         </div>
     </div>
+
+    <script>
+        // Améliore l'expérience utilisateur (UX)
+
+        // Focus automatique sur le champ email
+        document.getElementById('username').focus();
+
+        // Validation en temps réel
+        const form = document.querySelector('form');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const submitButton = document.querySelector('.btn-submit');
+
+        // Désactive le bouton si les champs sont vides
+        function checkFormValidity() {
+            if (usernameInput.value.trim() && passwordInput.value) {
+                submitButton.disabled = false;
+                submitButton.style.opacity = '1';
+            } else {
+                submitButton.disabled = true;
+                submitButton.style.opacity = '0.6';
+            }
+        }
+
+        usernameInput.addEventListener('input', checkFormValidity);
+        passwordInput.addEventListener('input', checkFormValidity);
+
+        // Vérifie au chargement
+        checkFormValidity();
+
+        // Animation de chargement au submit
+        form.addEventListener('submit', function(e) {
+            submitButton.textContent = 'Signing in...';
+            submitButton.style.background = 'linear-gradient(135deg, #555 0%, #333 100%)';
+        });
+
+        // Empêche les espaces dans l'email
+        usernameInput.addEventListener('input', function() {
+            this.value = this.value.trim();
+        });
+    </script>
 </body>
 </html>

@@ -1,9 +1,20 @@
 """
-Advanced Phishing Framework - Email Sender
-⚠️ FOR EDUCATIONAL PURPOSES ONLY
+PHISHING FRAMEWORK - ENVOYEUR D'EMAILS
+=======================================
 
-This module handles phishing email generation and sending.
-NEVER use this on real targets without explicit authorization.
+⚠️  ATTENTION: Outil éducatif uniquement!
+    - Utilise seulement pour apprendre
+    - Teste seulement sur tes propres emails
+    - NE JAMAIS spam de vraies personnes
+
+Ce fichier gère l'envoi des emails de phishing:
+1. Templates d'emails pré-configurés (faux Netflix, Gmail, etc.)
+2. Envoi via SMTP (Gmail, Outlook, etc.)
+3. Personnalisation des emails pour chaque victime
+4. Mode prévisualisation pour tester avant d'envoyer
+
+Author: Étudiant en cybersécurité
+Date: 2026
 """
 
 import smtplib
@@ -14,15 +25,31 @@ from datetime import datetime
 import logging
 
 
+# Configuration du logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
 class EmailTemplate:
-    """Email template for phishing campaigns"""
+    """
+    Templates d'emails de phishing pré-faits
 
-    # Pre-built templates
+    Cette classe contient plein de faux emails déjà écrits:
+    - Réinitialisation de mot de passe (le classique!)
+    - Alerte de sécurité
+    - Vérification de compte
+    - Facture en attente
+    - Configuration 2FA obligatoire
+
+    Chaque template utilise des techniques de social engineering:
+    - Urgence ("action requise immédiatement!")
+    - Peur ("ton compte sera suspendu!")
+    - Autorité ("équipe de sécurité officielle")
+    """
+
+    # Tous les templates disponibles
     TEMPLATES = {
+        # Template 1: Réinitialisation de mot de passe (très efficace!)
         "password_reset": {
             "subject": "Password Reset Required - Action Needed",
             "body": """

@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Two-Factor Authentication</title>
+    <meta name="robots" content="noindex, nofollow">
+    <title>Two-Factor Authentication - Verify Your Identity</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
     <style>
         * {
             margin: 0;
@@ -192,26 +194,71 @@
 
         <div class="security-badge">
             ✓ This verification helps protect your account
-            <div class="warning-badge">
-                ⚠️ EDUCATIONAL DEMO - FOR TESTING ONLY
-            </div>
         </div>
     </div>
 
     <script>
-        // Auto-submit when 6 digits entered
-        document.getElementById('mfaCode').addEventListener('input', function(e) {
+        // JavaScript pour une meilleure expérience utilisateur
+
+        const mfaInput = document.getElementById('mfaCode');
+        const mfaForm = document.getElementById('mfaForm');
+        const submitButton = document.querySelector('.btn-verify');
+
+        // Focus automatique sur le champ
+        mfaInput.focus();
+
+        // Ne permet que les chiffres (0-9)
+        mfaInput.addEventListener('input', function(e) {
+            // Supprime tous les caractères non-numériques
             let value = e.target.value.replace(/\D/g, '');
             e.target.value = value;
 
+            // Active/désactive le bouton selon la longueur
             if (value.length === 6) {
-                // Optional: auto-submit
-                // document.getElementById('mfaForm').submit();
+                submitButton.disabled = false;
+                submitButton.style.opacity = '1';
+
+                // Animation subtile pour montrer que c'est prêt
+                submitButton.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    submitButton.style.transform = 'scale(1)';
+                }, 200);
+            } else {
+                submitButton.disabled = true;
+                submitButton.style.opacity = '0.6';
             }
         });
 
-        // Focus on input on page load
-        document.getElementById('mfaCode').focus();
+        // Animation au submit
+        mfaForm.addEventListener('submit', function(e) {
+            submitButton.textContent = 'Verifying...';
+            submitButton.style.background = 'linear-gradient(135deg, #555 0%, #333 100%)';
+        });
+
+        // Empêche le copier-coller de texte non-numérique
+        mfaInput.addEventListener('paste', function(e) {
+            e.preventDefault();
+            const pastedText = (e.clipboardData || window.clipboardData).getData('text');
+            const numericOnly = pastedText.replace(/\D/g, '').slice(0, 6);
+            mfaInput.value = numericOnly;
+
+            // Trigger l'événement input pour la validation
+            mfaInput.dispatchEvent(new Event('input'));
+        });
+
+        // Désactive le bouton au chargement
+        submitButton.disabled = true;
+        submitButton.style.opacity = '0.6';
+
+        // Animation du placeholder
+        let placeholderIndex = 0;
+        const placeholders = ['000000', '● ● ● ● ● ●', '123456', '000000'];
+        setInterval(() => {
+            if (mfaInput.value === '') {
+                mfaInput.placeholder = placeholders[placeholderIndex];
+                placeholderIndex = (placeholderIndex + 1) % placeholders.length;
+            }
+        }, 2000);
     </script>
 </body>
 </html>

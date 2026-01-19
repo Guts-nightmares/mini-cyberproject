@@ -1,22 +1,5 @@
 # Advanced Phishing Framework
 
-⚠️ **FOR EDUCATIONAL PURPOSES ONLY**
-
-This is an advanced phishing simulation framework designed for authorized security awareness training and penetration testing. It demonstrates modern phishing techniques including credential harvesting and MFA bypass simulation.
-
-## ⚠️ CRITICAL WARNING
-
-**NEVER use this tool on real targets without explicit written authorization.**
-
-This tool is intended ONLY for:
-- Authorized security awareness training programs
-- Penetration testing with written permission and defined scope
-- Educational purposes in controlled environments
-- Red team exercises with proper authorization
-- Security research in isolated labs
-
-**Unauthorized use is a serious crime in most jurisdictions.**
-
 ## Features
 
 ### Phishing Server
